@@ -1,0 +1,55 @@
+{% extends 'admins/base.html' %}
+{% block userbody %}
+{% load staticfiles %}
+<style>
+.mai{
+    width: 43%;
+    height: 70%;
+    background-color:white;
+    
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 25em;
+
+    margin: auto;
+}
+table{
+width:500px;
+margin-left:20px;
+margin-top:20px;
+border-collapse:collapse;
+overflow:scroll;
+}
+table tr td{
+border:1px solid black;
+text-align:center;
+padding:10px;
+}
+table tr th{
+padding:10px;
+border:1px solid black;
+width:200px;
+}
+</style>
+<div class="mai">
+<table>
+<tr>
+<th>Currency Value</th>
+<th>Currency Name</th>
+<th>Country</th>
+<th>Images</th>
+</tr>
+{% for d in det %}
+<tr>
+<td>{{d.currencyValue}}</td>
+<td>{{d.currencyName}}</td>
+<td>{{d.country}}</td>
+<td><img src="{{d.imagesCurrency.url}}" style="width:100px;"></td>
+{% endfor %}
+</tr>
+</table>
+</div>
+<img src="{% static 'image/sc.jpg' %}" style="width:500px;height:500px;margin-top:100px;margin-left:750px;">
+{% endblock %}

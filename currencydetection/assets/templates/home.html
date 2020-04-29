@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block userbody %}
+<style>
+.formin{
+    width: 20%;
+    height: 30%;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 30em;
+    margin: auto;
+    padding:5px;
+    background-color:red;
+}
+.formin table{
+margin-left:20px;
+}
+table{
+height:100%;
+}
+input[type=submit]{
+border:1px solid white;
+background:none;
+text-transform:uppercase;
+color:white;
+}
+input[type=submit]:hover{
+background:white;
+color:red;
+}
+</style>
+</head>
+<body>
+<div class="formin">
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<table>
+    <tr>
+        <td><input type="file" name="testcur" accept="image/*" onchange="loadFile(event)"></td>
+    </tr>
+    <tr>
+        <td style="height:50%"><img id="output" width="200px" height="200px"/></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center" ><input type="submit" name="submit" value="submit" style="width:100px;height:30px;"></td>
+    </tr>
+</table>
+</form>
+<img src="{% static 'image/money.jpg' %}" style="width:600px;height:500px;position:absolute;top:0;left:19em;right:0;bottom:50em;">
+</div>
+
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
+
+
+    {% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block userbody %}
+<style>
+.formin{
+    width: 20%;
+    height: 30%;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding:5px;
+    background-color:red;
+}
+.formin table{
+margin-left:20px;
+}
+table{
+height:100%;
+}
+input[type=submit]{
+border:1px solid white;
+background:none;
+text-transform:uppercase;
+color:white;
+}
+input[type=submit]:hover{
+background:white;
+color:red;
+}
+</style>
+<div class="formin">
+<table>
+<tr>
+<td><p style="color:white;">Currency Value</p></td>
+<td><p style="color:white;">:</p></td>
+<td><p style="color:white;">{{obj.currencyValue}}</p></td>
+</tr>
+<tr>
+<td><p style="color:white;">Currency Name</p></td>
+<td><p style="color:white;">:</p></td>
+<td><p style="color:white;">{{obj.currencyName}}</p></td>
+</tr>
+<tr>
+<td><p style="color:white;">Country</p></td>
+<td><p style="color:white;">:</p></td>
+<td><p style="color:white;">{{obj.country}}</p></td>
+</tr>
+<tr>
+<td><p style="color:white;">Currency Image</p></td>
+<td><p style="color:white;">:</p></td>
+<td><img src="{{obj.imagesCurrency.url}}" style="width:100px;height:100px;"></td>
+</tr>
+<tr>
+<td>{{message}}</td>
+</tr>
+</table>
+</div>
+
+{% endblock %}

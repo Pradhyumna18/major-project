@@ -1,0 +1,20 @@
+{% extends 'admins/base.html' %}
+{% load staticfiles %}
+{% block userbody %}
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+
+{{form.currencyValue}}<br/><br/>
+{{form.currencyName}}<br/><br/>
+{{form.country}}<br/><br/>
+<img id="output" width="250px" height="250px"/><br/><br/>
+{{form.imagesCurrency}}<br/><br/>
+<input type="submit" name="submit" value="submit">
+</form>
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
+{% endblock %}
